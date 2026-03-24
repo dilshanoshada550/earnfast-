@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Earn Money Online – Start Today</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0a0a0f;
+    --card: #13131d;
+    --accent: #f5c518;
+    --accent2: #ff6b2b;
+    --text: #f0eff5;
+    --muted: #8b8a9e;
+    --border: rgba(245,197,24,0.15);
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* BG noise + glow */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: 
+      radial-gradient(ellipse 80% 50% at 50% -10%, rgba(245,197,24,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 30% at 80% 80%, rgba(255,107,43,0.08) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .wrap { position: relative; z-index: 1; }
+
+  /* NAV */
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 2rem;
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 99;
+    background: rgba(10,10,15,0.85);
+  }
+  .logo {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--accent);
+    letter-spacing: -0.5px;
+  }
+  .logo span { color: var(--text); }
+
+  /* HERO */
+  .hero {
+    text-align: center;
+    padding: 6rem 1.5rem 4rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: rgba(245,197,24,0.1);
+    border: 1px solid rgba(245,197,24,0.3);
+    color: var(--accent);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.9rem;
+    border-radius: 100px;
+    margin-bottom: 2rem;
+    animation: fadeDown 0.6s ease both;
+  }
+  .badge::before { content: '●'; font-size: 0.6rem; }
+
+  h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2.4rem, 7vw, 4.5rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -2px;
+    margin-bottom: 1.4rem;
+    animation: fadeUp 0.7s 0.1s ease both;
+  }
+  h1 em {
+    font-style: normal;
+    color: var(--accent);
+    position: relative;
+  }
+  h1 em::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0; bottom: -4px;
+    height: 3px;
+    background: var(--accent);
+    border-radius: 2px;
+    opacity: 0.4;
+  }
+
+  .sub {
+    font-size: 1.1rem;
+    color: var(--muted);
+    line-height: 1.7;
+    max-width: 550px;
+    margin: 0 auto 2.5rem;
+    animation: fadeUp 0.7s 0.2s ease both;
+  }
+
+  .cta-group {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fadeUp 0.7s 0.3s ease both;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--accent);
+    color: #000;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 0.9rem 2.2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 0 30px rgba(245,197,24,0.3);
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 0 50px rgba(245,197,24,0.5);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    color: var(--text);
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.9rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.15);
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .btn-secondary:hover {
+    border-color: var(--accent);
+    background: rgba(245,197,24,0.05);
+  }
+
+  /* STATS */
+  .stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    padding: 3rem 2rem;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    margin: 0 2rem;
+    animation: fadeUp 0.7s 0.4s ease both;
+  }
+  .stat-item { text-align: center; }
+  .stat-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--accent);
+    display: block;
+  }
+  .stat-label { font-size: 0.85rem; color: var(--muted); margin-top: 0.2rem; }
+
+  /* STEPS */
+  .section {
+    max-width: 1000px;
+    margin: 5rem auto;
+    padding: 0 1.5rem;
+  }
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    font-weight: 800;
+    letter-spacing: -1px;
+    text-align: center;
+    margin-bottom: 0.6rem;
+  }
+  .section-sub {
+    text-align: center;
+    color: var(--muted);
+    margin-bottom: 3rem;
+    font-size: 0.95rem;
+  }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+  .step-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .step-card:hover {
+    border-color: rgba(245,197,24,0.4);
+    transform: translateY(-4px);
+  }
+  .step-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .step-card:hover::before { opacity: 1; }
+
+  .step-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 3rem;
+    font-weight: 800;
+    color: rgba(245,197,24,0.12);
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+  .step-icon {
+    font-size: 1.8rem;
+    margin-bottom: 0.8rem;
+  }
+  .step-card h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  .step-card p {
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* MAIN CTA SECTION */
+  .cta-section {
+    margin: 4rem auto;
+    max-width: 700px;
+    padding: 0 1.5rem;
+    text-align: center;
+  }
+  .cta-box {
+    background: var(--card);
+    border: 1px solid rgba(245,197,24,0.25);
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-box::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center top, rgba(245,197,24,0.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .cta-box h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 1rem;
+  }
+  .cta-box p {
+    color: var(--muted);
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  /* MONETAG AD AREA */
+  .ad-placeholder {
+    background: rgba(245,197,24,0.05);
+    border: 2px dashed rgba(245,197,24,0.2);
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+  .ad-placeholder strong { display: block; color: var(--accent); font-size: 0.9rem; margin-bottom: 0.3rem; }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.8rem;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* MOBILE */
+  @media (max-width: 600px) {
+    nav { padding: 1rem; }
+    .stats { gap: 2rem; }
+    .cta-box { padding: 2rem 1.2rem; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav>
+    <div class="logo">Earn<span>Fast</span></div>
+    <a href="https://omg10.com/4/10765069" target="_blank" class="btn-primary" style="padding:0.6rem 1.4rem;font-size:0.9rem;">Get Started →</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="badge">🔥 Passive Income · No Experience Needed</div>
+    <h1>Make Real Money<br><em>Working Online</em><br>From Home</h1>
+    <p class="sub">Thousands of people are already earning daily. No special skills, no investment. Just follow 3 simple steps and start collecting payments.</p>
+    <div class="cta-group">
+       
+      <a href="https://omg10.com/4/10765069" target="_blank" class="btn-primary">
+        💰 Start Earning Now
+      </a>
+      <a href="#how" class="btn-secondary">See How It Works ↓</a>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stat-item">
+      <span class="stat-num">$5–50</span>
+      <div class="stat-label">Average daily earnings</div>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">2M+</span>
+      <div class="stat-label">Active members worldwide</div>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">Free</span>
+      <div class="stat-label">Zero investment required</div>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">24h</span>
+      <div class="stat-label">Fast payout processing</div>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <section class="section" id="how">
+    <h2 class="section-title">How It Works</h2>
+    <p class="section-sub">Three steps. That's all it takes to start earning today.</p>
+    <div class="steps">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <div class="step-icon">🖱️</div>
+        <h3>Click the Link Below</h3>
+        <p>Access our earning platform through the special link on this page. No sign-up fees, no hidden charges.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <div class="step-icon">✅</div>
+        <h3>Complete Simple Tasks</h3>
+        <p>Browse offers, watch content, or complete quick surveys. Each task rewards you with real cash.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <div class="step-icon">💳</div>
+        <h3>Withdraw Your Money</h3>
+        <p>Cash out to PayPal, bank transfer, or crypto. Payments are processed within 24 hours.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CTA + AD -->
+  <section class="cta-section" id="start">
+    <div class="cta-box">
+      <h2>Ready to Start Earning? 🚀</h2>
+      <p>Click the button below to access the earning platform. It's completely free and takes less than 2 minutes to get started.</p>
+
+     
+      <a href="https://omg10.com/4/10765069"_blank" class="btn-primary" style="font-size:1.1rem;padding:1.1rem 2.8rem;">
+        💰 Claim Your Spot Now — It's FREE
+      </a>
+
+      <p style="margin-top:1rem;font-size:0.8rem;color:var(--muted);">⏰ Limited spots available daily · No credit card required</p>
+
+      <!-- Monetag Ad Zone -->
+      <script src="https://5gvci.com/act/files/tag.min.js?z=10260704" data-cfasync="false" async></script>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 EarnFast · This site contains affiliate & advertising links · Results may vary</p>
+  </footer>
+
+</div>
+</body>
+</html>
